@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "About" };
 
 export default function AboutPage() {
   const heading = about.find((b) => b.type === "heading");
-  const rest = about.filter((b) => b !== heading).map((b) => ({ ...b, col: "full" as const }));
+  const rest = about.filter((b) => b !== heading && b.type !== "image").map((b) => ({ ...b, col: "full" as const }));
   return (
     <section className="mx-auto max-w-[1100px] px-5 sm:px-8 pt-16 sm:pt-24">
       <div className="grid gap-12 md:grid-cols-[1fr_1.6fr]">
