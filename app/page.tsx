@@ -3,15 +3,7 @@ import { home, site } from "@/lib/content";
 export default function Home() {
   return (
     <section className="mx-auto max-w-[1100px] px-5 sm:px-8 pt-20 sm:pt-32 pb-16">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/media/site/logo.png"
-        alt="Arnas Goldberg monogram"
-        width={96}
-        height={96}
-        className="pixelated h-20 w-20 sm:h-24 sm:w-24 dark:invert"
-      />
-      <h1 className="px mt-14 text-[clamp(2.4rem,7vw,5.6rem)] max-w-[18ch]">
+      <h1 className="px text-[clamp(2.4rem,7vw,5.6rem)] max-w-[18ch]">
         {home.headline}
         <span className="blink" aria-hidden>
           _

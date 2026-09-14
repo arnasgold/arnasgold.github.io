@@ -30,7 +30,6 @@
   --color-muted: var(--muted);
   --color-line: var(--line);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-pixel: var(--font-pixel), "Courier New", monospace;
   --font-grotesk: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -54,18 +53,10 @@ body {
   letter-spacing: -0.035em;
 }
 
-/* Square pixel face for labels and the wordmark, following the logo motif */
-.pixel {
-  font-family: var(--font-pixel);
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.02em;
-}
-
 .eyebrow {
-  font-family: var(--font-pixel);
   font-size: 0.7rem;
   line-height: 1;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
 }
