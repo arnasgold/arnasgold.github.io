@@ -44,97 +44,46 @@ export const site = {
   ]
 } as const;
 export const home = {
-  "headline": "Multidisciplinary designer helping  businesses to create meaningful  visual experiences.",
-  "specialties": [
-    "Product Design",
-    "Creative Direction",
-    "Design Consulting",
-    "Design Mentoring"
-  ],
-  "bgVideo": "baUFMplaqK8",
-  "showreel": {
-    "youtube": "xd7ozgVvGB4",
-    "cover": "/media/work/showreel-cover.jpg"
-  }
+  headline: "I design in code. Eighteen years of brand, product and motion, now shipped as working software.",
+  now: {
+    label: "Now",
+    html: 'Design at <a href="https://gte.xyz" target="_blank" rel="noreferrer">GTE</a>, an on-chain perpetuals exchange. Terminal, order flow, positions, brand. I design the interface and build it.',
+  },
+  stack: {
+    label: "Stack",
+    groups: [
+      "React, Next.js, TypeScript, Tailwind",
+      "Figma, Rive, Spline, After Effects",
+      "Design systems, motion, brand identity",
+      "Claude Code in the loop",
+    ],
+  },
+  before: {
+    label: "Before",
+    html: "Ten years at Hanno designing healthcare products for Smith+Nephew, Omron and Ipsen. Design lead at Ready, Vesu and Pure Poker.",
+  },
+  showreel: {
+    youtube: "xd7ozgVvGB4",
+    cover: "/media/work/showreel-cover.jpg",
+  },
 };
 export const about: Block[] = [
+  { type: "heading", level: 3, text: "About me", col: "full" },
   {
-    "type": "heading",
-    "level": 3,
-    "text": "About me",
-    "col": "left",
-    "row": 1
+    type: "paragraph",
+    col: "full",
+    html: 'I\'m Arnas Goldberg, a design engineer based in Italy. I started freelancing as a logo designer at sixteen, spent ten years at Hanno moving from brand to web to front-end to healthcare product design, and led design at Ready, Vesu and Pure Poker. Today I work on <a href="https://gte.xyz" target="_blank" rel="noreferrer">GTE</a>, an on-chain perpetuals exchange, where I design the interface and ship it.',
   },
   {
-    "type": "paragraph",
-    "html": "My name is Arnas Goldberg. I am a multidisciplinary digital designer based in Italy. I have always been interested in the arts and technology, which has led me to pursue a career in digital design. I strongly believe that creativity and innovation are key to success in any industry, and I strive to bring my unique perspective and skillset to every project I work on.",
-    "col": "left",
-    "row": 1
+    type: "paragraph",
+    col: "full",
+    html: "I\'ve always been a generalist by temperament. Brand, illustration, motion, interaction, systems, code. Each one changed how I do the others, and the combination is the point: I can take an idea from a sketch to a working product without handing it off.",
   },
   {
-    "type": "paragraph",
-    "html": "At the moment I am working with an amazing team at <a href=\"https://argent.xyz\">Argent</a>, where I am responsible for scaling and developing the design for self-custodial wallets on Ethereum, ZkSync and StarkNet.",
-    "col": "left",
-    "row": 1
+    type: "paragraph",
+    col: "full",
+    html: "Curiosity drives most of it. Creativity is how it comes together.",
   },
-  {
-    "type": "heading",
-    "level": 4,
-    "text": "A Swiss Army Knife of Design",
-    "col": "left",
-    "row": 1
-  },
-  {
-    "type": "paragraph",
-    "html": "I started my career in 2009 as a freelance logo designer, working with various clients from around the world. I was proud to have my work published in numerous publications such as Logopond, Logo Lounge vol. 7 and Logo Nest. I loved the creative freedom that came with being a freelance designer and the satisfaction of seeing my work used by companies and individuals alike.",
-    "col": "left",
-    "row": 1
-  },
-  {
-    "type": "paragraph",
-    "html": "After a brief period of design studies in Denmark I joined a London-based yet fully remote design agency called Hanno, where I spent the past 10 years building beautiful digital products.",
-    "col": "left",
-    "row": 1
-  },
-  {
-    "type": "paragraph",
-    "html": "My initial role at Hanno was to design brand identities, illustrations and marketing collateral. Later I added web design and front-end skills to my repertoire in order to help the team to design websites. To complement my web design efforts I decided to learn motion graphics, which allowed me to design better interactions. As a team we delivered design solutions and strategies for various startups and renowned companies such as Sony and Lenovo.&nbsp;",
-    "col": "left",
-    "row": 1
-  },
-  {
-    "type": "paragraph",
-    "html": "5 years later, after Hanno decided to specialise in healthcare, most of the projects were greenfield ventures enabling traditional healthcare brands to transform their businesses. This put a lot of emphasis on user experience design as one of the foundational parts of our process and required me to better understand UX design, learn Design Thinking and how to work with design systems.",
-    "col": "left",
-    "row": 1
-  },
-  {
-    "type": "paragraph",
-    "html": "Around that time I was also entrusted by the team to take more responsibility and ownership of creative and design decisions. I became a hands-on creative lead who would bridge the gap between ideation and development. I worked closely with researchers, designers, stakeholders and developers to design and deliver digital products for healthcare companies such as Omron, Ipsen and Smith+Nephew.",
-    "col": "left",
-    "row": 1
-  },
-  {
-    "type": "paragraph",
-    "html": "Ultimately, this experience and combination of various skills has shaped me into a versatile and multidisciplinary designer who could handle anything. Well, almost anything.",
-    "col": "left",
-    "row": 1
-  },
-  {
-    "type": "paragraph",
-    "html": "<span><em>While curiosity is the driving force in my career and life, creativity is the way everything comes together.</em></span>",
-    "col": "left",
-    "row": 1
-  },
-  {
-    "type": "image",
-    "src": "/media/about/profile-photo.webp",
-    "alt": "",
-    "width": 2000,
-    "height": 2000,
-    "col": "right",
-    "row": 1
-  }
 ];
 export const deck = {
   "title": "Product Design Portfolio",
