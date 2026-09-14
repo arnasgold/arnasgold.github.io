@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import { Inter, Space_Grotesk, Silkscreen } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/content";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
-const instrument = Instrument_Serif({
-  variable: "--font-instrument",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-});
+const grotesk = Space_Grotesk({ variable: "--font-grotesk", subsets: ["latin"], weight: ["400", "500", "700"] });
+const pixel = Silkscreen({ variable: "--font-pixel", subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://arnasgold.github.io"),
@@ -21,13 +17,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: site.name,
     description: "Multidisciplinary designer helping businesses to create meaningful visual experiences.",
-    images: ["/media/work/showreel-cover.jpg"],
+    images: ["/media/site/logo.png"],
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${instrument.variable} h-full`}>
+    <html lang="en" className={`${inter.variable} ${grotesk.variable} ${pixel.variable} h-full`}>
       <body className="min-h-full flex flex-col">
         <Header />
         <main className="flex-1">{children}</main>

@@ -28,7 +28,7 @@ function Media({ b, eager }: { b: Block; eager?: boolean }) {
 function Text({ b }: { b: Block }) {
   switch (b.type) {
     case "heading": {
-      if (b.level <= 2) return <h2 className="display text-[2rem] sm:text-[2.6rem]">{b.text}</h2>;
+      if (b.level <= 2) return <h2 className="px text-[1.8rem] sm:text-[2.2rem]">{b.text}</h2>;
       return <h3 className="mt-2 text-lg font-medium">{b.text}</h3>;
     }
     case "label":
@@ -44,14 +44,14 @@ function Text({ b }: { b: Block }) {
         </ul>
       );
     case "quote":
-      return <blockquote className="display text-2xl italic">{b.text}</blockquote>;
+      return <blockquote className="px text-2xl">{b.text}</blockquote>;
     case "button":
       return (
         <a
           href={b.href}
           target={b.href.startsWith("http") ? "_blank" : undefined}
           rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-ink px-5 py-2.5 text-sm font-medium hover:bg-ink hover:text-paper transition-colors"
+          className="btn"
         >
           {b.text} <span aria-hidden>↗</span>
         </a>

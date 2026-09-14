@@ -21,9 +21,9 @@ export default function Showreel({ youtube, cover }: { youtube: string; cover: s
           aria-label="Play showreel"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={cover} alt="Showreel cover" className="card-img h-full w-full object-cover" />
+          <img src={cover} alt="Showreel cover" className="h-full w-full object-cover" />
           <span className="absolute inset-0 bg-black/20 transition-colors group-hover:bg-black/30" />
-          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-3 rounded-full bg-white/95 text-black pl-4 pr-6 py-3 text-sm font-medium shadow-lg transition-transform group-hover:scale-105">
+          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-3 bg-white text-black pl-4 pr-5 py-3 text-sm font-medium">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden>
               <path d="M4 2.5v11l9-5.5z" />
             </svg>
