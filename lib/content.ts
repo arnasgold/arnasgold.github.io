@@ -60,7 +60,7 @@ export const home = {
   },
   before: {
     label: "Before",
-    html: "Ten years at Hanno designing healthcare products for Smith+Nephew, Omron and Ipsen. Design lead at Ready, Vesu and Pure Poker.",
+    html: "Ten years at Hanno designing healthcare products for Smith+Nephew, Omron and Ipsen. Three years at Ready on the wallet and design system. Jumpstarted design for Vesu and Pure Poker on the side.",
   },
   showreel: {
     youtube: "xd7ozgVvGB4",
@@ -72,7 +72,7 @@ export const about: Block[] = [
   {
     type: "paragraph",
     col: "full",
-    html: 'I\'m Arnas Goldberg, a design engineer based in Italy. I started freelancing as a logo designer at sixteen, spent ten years at Hanno moving from brand to web to front-end to healthcare product design, and led design at Ready, Vesu and Pure Poker. Today I work on <a href="https://gte.xyz" target="_blank" rel="noreferrer">GTE</a>, an on-chain perpetuals exchange, where I design the interface and ship it.',
+    html: 'I\'m Arnas Goldberg, a design engineer based in Italy. I started freelancing as a logo designer at sixteen, spent ten years at Hanno moving from brand to web to front-end to healthcare product design, and spent three years at Ready shaping the wallet and its design system, with side projects along the way helping Vesu and Pure Poker get their design off the ground. Today I work on <a href="https://gte.xyz" target="_blank" rel="noreferrer">GTE</a>, an on-chain perpetuals exchange, where I design the interface and ship it.',
   },
   {
     type: "paragraph",
