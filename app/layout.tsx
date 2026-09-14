@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   title: { default: site.name, template: `%s — ${site.name}` },
   description:
     "Multidisciplinary designer helping businesses to create meaningful visual experiences. Product design, creative direction, design consulting and mentoring.",
-  icons: { icon: "/media/site/favicon.ico" },
   openGraph: {
     title: site.name,
     description: "Multidisciplinary designer helping businesses to create meaningful visual experiences.",
