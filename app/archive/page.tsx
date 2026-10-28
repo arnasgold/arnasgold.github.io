@@ -14,7 +14,7 @@ export default function ArchivePage() {
       <p className="eyebrow mb-4">Archive · 2017–2025</p>
       <h1 className="px text-[clamp(2.2rem,5vw,3.6rem)] max-w-[24ch]">Selected work from the pre-AI era.</h1>
       <p className="mt-6 max-w-[60ch] text-ink-2">
-        Case studies kept for reference. This page isn&apos;t linked from the site and is excluded from search engines.
+        Brand, product and motion work from before GTE. Everything here was made by hand, before I started designing, building and shipping with AI agents.
       </p>
 
       <div className="mt-14 max-w-[820px]">
