@@ -12,10 +12,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://arnasgold.github.io"),
   title: { default: site.name, template: `%s — ${site.name}` },
   description:
-    "Design leader who builds what I design. Eighteen years of brand, product and motion, now shipped as working software. Currently leading design at GTE.",
+    "Designer and engineer. Eighteen years of brand, product and motion, now shipped as working software. Currently leading design at GTE.",
   openGraph: {
     title: site.name,
-    description: "Design leader who builds what I design. Eighteen years of brand, product and motion, now shipped as working software.",
+    description: "Designer and engineer. Eighteen years of brand, product and motion, now shipped as working software.",
     images: ["/media/site/logo.png"],
   },
 };
