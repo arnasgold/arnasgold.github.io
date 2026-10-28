@@ -12,7 +12,7 @@ export default function AboutPage() {
       <div className="grid gap-12 md:grid-cols-[1fr_1.6fr] items-start">
         <div className="media aspect-square max-w-[360px] md:sticky md:top-10">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/media/about/profile-photo.webp" alt={site.name} loading="eager" />
+          <img src="/media/about/profile-photo.webp" alt={site.name} loading="eager" className="grayscale" />
         </div>
         <div>
           <p className="eyebrow mb-4">About</p>
