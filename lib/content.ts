@@ -47,7 +47,7 @@ export const home = {
   headline: "I design in code. Eighteen years of brand, product and motion, now shipped as working software.",
   now: {
     label: "Now",
-    html: 'Design at <a href="https://gte.xyz" target="_blank" rel="noreferrer">GTE</a>, an AI trading platform. Terminal, order flow, positions, brand. I design the interface and build it.',
+    html: 'Design at <a href="https://gte.xyz" target="_blank" rel="noreferrer">GTE</a>, an AI trading platform. I lead design end to end, from brand to product, and build the interface myself.',
   },
   stack: {
     label: "Stack",
