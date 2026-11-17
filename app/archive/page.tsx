@@ -29,11 +29,6 @@ export default function ArchivePage() {
             <span className="text-sm text-ink-2 text-right hidden sm:block">{p.category}</span>
           </Link>
         ))}
-        <Link href="/archive/deck/" className="row-link">
-          <span className="eyebrow">2022</span>
-          <span className="text-[1.05rem]">Product design portfolio deck</span>
-          <span className="text-sm text-ink-2 text-right hidden sm:block">21 slides</span>
-        </Link>
       </div>
     </section>
   );
