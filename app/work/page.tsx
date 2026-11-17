@@ -15,8 +15,11 @@ export default function WorkPage() {
       <div className="mt-14">
         <Link href="/work/gte/" className="row-link">
           <span className="eyebrow">2025</span>
-          <span className="text-[1.05rem]">GTE</span>
-          <span className="text-sm text-ink-2 text-right hidden sm:block">Password protected</span>
+          <span className="flex items-center gap-3">
+            <span className="text-[1.05rem]">GTE</span>
+            <span className="rounded-md bg-chip px-2 py-1 text-xs leading-none text-ink">Password protected</span>
+          </span>
+          <span className="text-sm text-ink-2 text-right hidden sm:block">AI Trading Platform</span>
         </Link>
         {projects.map((p) => (
           <Link key={p.slug} href={`/work/${p.slug}/`} className="row-link">
