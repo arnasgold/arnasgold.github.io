@@ -16,7 +16,7 @@ const ROOT = path.resolve(import.meta.dirname, "..");
 const SRC = path.join(ROOT, "private/gte");
 const OUT = path.join(ROOT, "public/protected");
 const ITERATIONS = 600_000;
-const MIME = { ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".mp4": "video/mp4" };
+const MIME = { ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".mp4": "video/mp4", ".json": "application/json" };
 
 const { subtle } = globalThis.crypto;
 const b64 = (bytes) => Buffer.from(bytes).toString("base64");
@@ -86,7 +86,7 @@ const walk = async (value) => {
   if (Array.isArray(value)) return Promise.all(value.map(walk));
   if (value && typeof value === "object") {
     const out = {};
-    for (const [k, v] of Object.entries(value)) out[k] = ["src", "card", "video", "poster"].includes(k) ? await swap(v) : await walk(v);
+    for (const [k, v] of Object.entries(value)) out[k] = ["src", "card", "video", "poster", "glow"].includes(k) ? await swap(v) : await walk(v);
     return out;
   }
   return value;

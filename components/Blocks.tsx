@@ -21,7 +21,7 @@ function Media({ b, eager }: { b: Block; eager?: boolean }) {
   if (b.type === "image" || b.type === "still") {
     return (
       <figure
-        className="media"
+        className={b.type === "image" && b.frame === "card" ? "card-frame" : "media"}
         style={"maxWidth" in b && b.maxWidth ? { maxWidth: b.maxWidth, marginInline: "auto" } : undefined}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -33,6 +33,13 @@ function Media({ b, eager }: { b: Block; eager?: boolean }) {
           loading={eager ? "eager" : "lazy"}
         />
       </figure>
+    );
+  }
+  if (b.type === "video" && b.frame === "laptop") {
+    return (
+      <LaptopFrame>
+        <InViewVideo src={b.src} poster={b.poster ?? undefined} glow={b.glow} />
+      </LaptopFrame>
     );
   }
   if (b.type === "video") {

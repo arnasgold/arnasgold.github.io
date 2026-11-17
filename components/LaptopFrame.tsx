@@ -3,8 +3,8 @@ import type { ReactNode } from "react";
 export type Region = { from: number; to: number; label: string };
 
 /**
- * Presents a screen capture as a MacBook display: aluminium edge, black bezel,
- * a base with its opening notch, and a drop shadow lifting it off the page.
+ * Presents a screen capture as a MacBook display: aluminium edge, black bezel
+ * and a drop shadow lifting it off the page.
  * `regions` (percent of the screen's width) draw labelled brackets above it.
  */
 export default function LaptopFrame({ children, regions }: { children: ReactNode; regions?: Region[] }) {
@@ -24,7 +24,6 @@ export default function LaptopFrame({ children, regions }: { children: ReactNode
           <div className="laptop-screen">{children}</div>
         </div>
       </div>
-      <div className="laptop-base" />
     </div>
   );
 }
