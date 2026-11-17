@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# password-protected case studies: plaintext stays local, only encrypted output is committed
+/private/

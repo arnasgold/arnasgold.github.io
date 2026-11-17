@@ -13,6 +13,11 @@ export default function WorkPage() {
       </p>
 
       <div className="mt-14">
+        <Link href="/work/gte/" className="row-link">
+          <span className="eyebrow">2025</span>
+          <span className="text-[1.05rem]">GTE</span>
+          <span className="text-sm text-ink-2 text-right hidden sm:block">Password protected</span>
+        </Link>
         {projects.map((p) => (
           <Link key={p.slug} href={`/work/${p.slug}/`} className="row-link">
             <span className="eyebrow">{p.year.split(" ")[0]}</span>
