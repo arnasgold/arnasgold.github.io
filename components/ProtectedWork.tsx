@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import type { Project } from "@/lib/content";
 import CaseStudy from "@/components/CaseStudy";
+import PhoneFrame from "@/components/PhoneFrame";
 
 type Manifest = {
   v: 1;
@@ -80,7 +81,45 @@ export default function ProtectedWork() {
   };
 
   if (projects) {
-    const idx = Math.max(0, projects.findIndex((p) => p.slug === active));
+    const idx = projects.findIndex((p) => p.slug === active);
+    if (idx === -1)
+      return (
+        <section className="mx-auto max-w-[1100px] px-5 sm:px-8 pt-16 sm:pt-24 pb-24">
+          <h1 className="px text-[clamp(2.2rem,5vw,3.6rem)] max-w-[24ch]">GTE</h1>
+          <p className="mt-6 max-w-[60ch] text-ink-2">
+            Head of Design at GTE, an AI trading platform. The web app and the native iOS app, each as its own case study.
+          </p>
+          <div className="mt-14 grid gap-10 sm:grid-cols-2">
+            {projects.map((p) => (
+              <a key={p.slug} href={`#${p.slug}`} className="group block">
+                <div className="aspect-[16/10] overflow-hidden rounded-xl bg-paper-2">
+                  {p.cover.frame === "phone" ? (
+                    <div className="flex h-full items-start justify-center gap-[4%] px-[8%] pt-[7%] transition-transform duration-500 group-hover:scale-[1.02]">
+                      {[p.cover.src, ...(p.cover.extra ?? [])].map((src) => (
+                        <div key={src} className="w-[27%] shrink-0">
+                          <PhoneFrame>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={src} alt="" />
+                          </PhoneFrame>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={p.card}
+                      alt=""
+                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                    />
+                  )}
+                </div>
+                <p className="eyebrow mt-5">{p.category}</p>
+                <p className="px mt-2 text-2xl group-hover:text-ink-2">{p.title}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      );
     const project = projects[idx];
     const neighbour = (p: Project) => ({ href: `#${p.slug}`, title: p.title });
     const many = projects.length > 1;
@@ -89,6 +128,7 @@ export default function ProtectedWork() {
         project={project}
         prev={many ? neighbour(projects[(idx - 1 + projects.length) % projects.length]) : null}
         next={many ? neighbour(projects[(idx + 1) % projects.length]) : null}
+        back={{ href: "#", label: "GTE" }}
       />
     );
   }

@@ -86,7 +86,11 @@ const walk = async (value) => {
   if (Array.isArray(value)) return Promise.all(value.map(walk));
   if (value && typeof value === "object") {
     const out = {};
-    for (const [k, v] of Object.entries(value)) out[k] = ["src", "card", "video", "poster", "glow"].includes(k) ? await swap(v) : await walk(v);
+    for (const [k, v] of Object.entries(value)) {
+      if (["src", "card", "video", "poster", "glow"].includes(k)) out[k] = await swap(v);
+      else if (k === "extra" && Array.isArray(v)) out[k] = await Promise.all(v.map(swap));
+      else out[k] = await walk(v);
+    }
     return out;
   }
   return value;

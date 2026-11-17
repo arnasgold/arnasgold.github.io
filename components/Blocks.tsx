@@ -1,6 +1,7 @@
 import type { Block } from "@/lib/content";
 import InViewVideo from "@/components/InViewVideo";
 import LaptopFrame from "@/components/LaptopFrame";
+import PhoneFrame from "@/components/PhoneFrame";
 
 function Media({ b, eager }: { b: Block; eager?: boolean }) {
   if (b.type === "still" && b.video) {
@@ -16,6 +17,21 @@ function Media({ b, eager }: { b: Block; eager?: boolean }) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={b.src} alt={b.alt} width={b.width} height={b.height} loading={eager ? "eager" : "lazy"} />
       </LaptopFrame>
+    );
+  }
+  if (b.type === "image" && b.frame === "phone") {
+    return (
+      <PhoneFrame maxWidth={b.maxWidth}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={b.src} alt={b.alt} width={b.width} height={b.height} loading={eager ? "eager" : "lazy"} />
+      </PhoneFrame>
+    );
+  }
+  if (b.type === "video" && b.frame === "phone") {
+    return (
+      <PhoneFrame maxWidth={b.maxWidth}>
+        <InViewVideo src={b.src} poster={b.poster ?? undefined} glow={b.glow} />
+      </PhoneFrame>
     );
   }
   if (b.type === "image" && b.fadeAt) {
@@ -111,13 +127,16 @@ function Text({ b }: { b: Block }) {
   }
 }
 
+const isPhone = (b: Block) => (b.type === "image" || b.type === "video") && b.frame === "phone";
+const isFullPhone = (b: Block) => (b.type === "image" || b.type === "video") && b.frame === "phone" && b.col === "full";
 const isMedia = (b: Block) => b.type === "image" || b.type === "video" || b.type === "still";
 const isText = (b: Block) => !isMedia(b) && b.type !== "gallery";
 
 type Row =
   | { kind: "pair"; left: Block[]; right: Block[] }
   | { kind: "single"; block: Block }
-  | { kind: "stills"; blocks: Block[] };
+  | { kind: "stills"; blocks: Block[] }
+  | { kind: "phones"; blocks: Block[] };
 
 /** Group blocks into rows: consecutive left/right blocks sharing a row become two columns. */
 function toRows(blocks: Block[]): Row[] {
@@ -129,6 +148,12 @@ function toRows(blocks: Block[]): Row[] {
       const group: Block[] = [];
       while (i < blocks.length && blocks[i].type === "still") group.push(blocks[i++]);
       rows.push({ kind: "stills", blocks: group });
+      continue;
+    }
+    if (isFullPhone(b)) {
+      const group: Block[] = [];
+      while (i < blocks.length && isFullPhone(blocks[i])) group.push(blocks[i++]);
+      rows.push({ kind: "phones", blocks: group });
       continue;
     }
     if (b.type === "gallery" || b.col === "full") {
@@ -159,8 +184,8 @@ function toRows(blocks: Block[]): Row[] {
 }
 
 function Stack({ blocks }: { blocks: Block[] }) {
-  // Faded crops sit side by side, close together.
-  if (blocks.every((b) => b.type === "image" && b.fadeAt))
+  // Faded crops and phones sit side by side, close together.
+  if (blocks.every((b) => (b.type === "image" && b.fadeAt) || isPhone(b)))
     return (
       <div className="flex items-start justify-center gap-4 sm:gap-5">
         {blocks.map((b, k) => (
@@ -180,6 +205,16 @@ export default function Blocks({ blocks }: { blocks: Block[] }) {
   return (
     <div className="flex flex-col gap-8 sm:gap-10">
       {rows.map((row, k) => {
+        if (row.kind === "phones")
+          return (
+            <div key={k} className="my-4 flex flex-wrap items-start justify-center gap-6 sm:gap-10">
+              {row.blocks.map((b, j) => (
+                <div key={j} className="w-[min(100%,260px)]">
+                  <Media b={b} />
+                </div>
+              ))}
+            </div>
+          );
         if (row.kind === "stills") {
           const portrait = row.blocks.every((b) => b.type === "still" && b.height > b.width);
           if (portrait)

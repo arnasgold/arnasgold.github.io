@@ -1,31 +1,61 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import type { Project } from "@/lib/content";
 import Blocks from "@/components/Blocks";
 import LaptopFrame from "@/components/LaptopFrame";
+import PhoneFrame from "@/components/PhoneFrame";
 
 type Neighbour = { href: string; title: string };
+
+/** In-page (#) links stay plain anchors so the page sees the hash change; others go through Next's router. */
+function Go({ href, className, children }: { href: string; className?: string; children: ReactNode }) {
+  return href.startsWith("#") ? (
+    <a href={href} className={className}>
+      {children}
+    </a>
+  ) : (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
+  );
+}
 
 /** A case study page; shared by the public /work/[slug] pages and the password-protected ones. */
 export default function CaseStudy({
   project,
   prev,
   next,
+  back = { href: "/work/", label: "Work" },
 }: {
   project: Project;
   prev: Neighbour | null;
   next: Neighbour | null;
+  back?: { href: string; label: string };
 }) {
   return (
     <article>
       <header className="mx-auto max-w-[1100px] px-5 sm:px-8 pt-14 sm:pt-24">
-        <Link href="/work/" className="eyebrow inline-block mb-8 hover:text-ink">← Work</Link>
+        <Go href={back.href} className="eyebrow inline-block mb-8 hover:text-ink">
+          ← {back.label}
+        </Go>
         <p className="eyebrow mb-4">
           {project.year} · {project.category}
         </p>
         <h1 className="px text-[clamp(2.6rem,7vw,6rem)] max-w-[14ch]">{project.title}</h1>
       </header>
 
-      {project.cover.frame === "laptop" ? (
+      {project.cover.frame === "phone" ? (
+        <div className="mx-auto max-w-[1100px] px-5 sm:px-8 mt-12 sm:mt-16 flex items-start justify-center gap-5 sm:gap-10">
+          {[project.cover.src, ...(project.cover.extra ?? [])].map((src, i) => (
+            <div key={src} className={i === 0 ? "w-[min(100%,290px)]" : "hidden w-[260px] sm:block sm:mt-10"}>
+              <PhoneFrame>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={src} alt={i === 0 ? project.title : ""} loading="eager" />
+              </PhoneFrame>
+            </div>
+          ))}
+        </div>
+      ) : project.cover.frame === "laptop" ? (
         <div className="mx-auto max-w-[1240px] px-3 sm:px-6 mt-12 sm:mt-16 mb-6">
           <LaptopFrame>
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -114,14 +144,14 @@ export default function CaseStudy({
           project.sections.at(-1)?.theme === "dark-bold" ? "pt-12" : "mt-28 border-t border-line pt-10"
         }`}
       >
-        <Link href={prev.href} className="group">
+        <Go href={prev.href} className="group">
           <p className="eyebrow mb-2">← Previous</p>
           <p className="px text-2xl sm:text-3xl group-hover:text-ink-2">{prev.title}</p>
-        </Link>
-        <Link href={next.href} className="group text-right">
+        </Go>
+        <Go href={next.href} className="group text-right">
           <p className="eyebrow mb-2">Next →</p>
           <p className="px text-2xl sm:text-3xl group-hover:text-ink-2">{next.title}</p>
-        </Link>
+        </Go>
       </nav>
       )}
     </article>

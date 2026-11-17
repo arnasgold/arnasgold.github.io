@@ -165,6 +165,36 @@ body {
   height: auto;
 }
 
+/* An abstract phone for mobile captures; every size follows the frame's width */
+.phone {
+  width: 100%;
+  margin-inline: auto;
+  container-type: inline-size;
+  filter: drop-shadow(0 28px 40px rgba(0, 0, 0, 0.55)) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
+}
+.phone-body {
+  padding: 3.4cqw;
+  border-radius: 17.5cqw;
+  background: #050505;
+  /* aluminium edge, lit from above */
+  box-shadow:
+    0 0 0 2px #3a3a3e,
+    0 -1px 0 2px #6b6b70,
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+.phone-screen {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 14cqw;
+}
+.phone-screen img,
+.phone-screen video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* A crop whose lower part fades into the page */
 .fade-shadow {
   filter: drop-shadow(0 20px 28px rgba(0, 0, 0, 0.45)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
