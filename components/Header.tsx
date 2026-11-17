@@ -3,7 +3,7 @@ import { site } from "@/lib/content";
 
 export default function Header() {
   return (
-    <header className="border-b border-line">
+    <header className="border-b border-line-soft">
       <div className="mx-auto max-w-[1100px] px-5 sm:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
           {/* eslint-disable-next-line @next/next/no-img-element */}

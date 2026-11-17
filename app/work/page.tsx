@@ -8,7 +8,7 @@ export default function WorkPage() {
   return (
     <section className="mx-auto max-w-[1100px] px-5 sm:px-8 pt-16 sm:pt-24">
       <h1 className="px text-[clamp(2.2rem,5vw,3.6rem)] max-w-[24ch]">Selected work.</h1>
-      <p className="mt-6 max-w-[60ch] text-ink-2">
+      <p className="mt-6 max-w-[60ch] leading-[1.75] text-ink-2">
         Product, brand and motion work from Ready, Hanno and early-stage teams, from healthcare apps to crypto wallets.
       </p>
 

@@ -86,7 +86,7 @@ export default function ProtectedWork() {
       return (
         <section className="mx-auto max-w-[1100px] px-5 sm:px-8 pt-16 sm:pt-24 pb-24">
           <h1 className="px text-[clamp(2.2rem,5vw,3.6rem)] max-w-[24ch]">GTE</h1>
-          <p className="mt-6 max-w-[60ch] text-ink-2">
+          <p className="mt-6 max-w-[60ch] leading-[1.75] text-ink-2">
             Head of Design at GTE, an AI trading platform. The web app and the native iOS app, each as its own case study.
           </p>
           <div className="mt-14 grid gap-10 sm:grid-cols-2">
@@ -94,7 +94,7 @@ export default function ProtectedWork() {
               <a key={p.slug} href={`#${p.slug}`} className="group block">
                 <div className="aspect-[16/10] overflow-hidden rounded-xl bg-paper-2">
                   {p.cover.frame === "phone" ? (
-                    <div className="flex h-full items-start justify-center gap-[4%] px-[8%] pt-[7%] transition-transform duration-500 group-hover:scale-[1.02]">
+                    <div className="flex h-full items-start justify-center gap-[4%] px-[8%] pt-[7%] transition-transform duration-500 will-change-transform [backface-visibility:hidden] group-hover:scale-[1.02]">
                       {[p.cover.src, ...(p.cover.extra ?? [])].map((src) => (
                         <div key={src} className="w-[27%] shrink-0">
                           <PhoneFrame>
@@ -109,12 +109,12 @@ export default function ProtectedWork() {
                     <img
                       src={p.card}
                       alt=""
-                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                      className="h-full w-full object-cover object-top transition-transform duration-500 will-change-transform [backface-visibility:hidden] group-hover:scale-[1.02]"
                     />
                   )}
                 </div>
                 <p className="eyebrow mt-5">{p.category}</p>
-                <p className="px mt-2 text-2xl group-hover:text-ink-2">{p.title}</p>
+                <p className="px mt-3.5 text-2xl group-hover:text-ink-2">{p.title}</p>
               </a>
             ))}
           </div>
@@ -136,7 +136,7 @@ export default function ProtectedWork() {
   return (
     <section className="mx-auto max-w-[1100px] px-5 sm:px-8 pt-16 sm:pt-24 pb-24">
       <h1 className="px text-[clamp(2.2rem,5vw,3.6rem)] max-w-[24ch]">GTE</h1>
-      <p className="mt-6 max-w-[60ch] text-ink-2">
+      <p className="mt-6 max-w-[60ch] leading-[1.75] text-ink-2">
         These case studies cover unreleased work, so they&apos;re password protected. Get in touch if you&apos;d like
         access.
       </p>
@@ -154,7 +154,7 @@ export default function ProtectedWork() {
             if (state !== "unlocking") setState("locked");
           }}
           placeholder="Password"
-          className="flex-1 rounded-md border border-line bg-paper-2 px-3 py-2.5 text-sm outline-none focus:border-ink-2"
+          className="flex-1 rounded-md border border-line-soft bg-paper-2 px-3 py-2.5 text-sm outline-none focus:border-ink-2"
         />
         <button
           type="submit"

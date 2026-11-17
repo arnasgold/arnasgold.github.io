@@ -27,7 +27,7 @@ export default function Home() {
         See work <span aria-hidden>→</span>
       </Link>
 
-      <div className="mt-20 grid gap-x-12 gap-y-12 sm:grid-cols-2 max-w-[900px]">
+      <div className="mt-20 grid gap-x-16 gap-y-12 sm:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]">
         <div className="flex flex-col gap-12">
           <div>
             <p className="eyebrow mb-4">{home.now.label}</p>
