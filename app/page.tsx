@@ -22,7 +22,7 @@ export default function Home() {
       <h1 className="px text-[clamp(2.2rem,5vw,3.6rem)] max-w-[24ch]">{home.headline}</h1>
       <Link
         href="/work/"
-        className="mt-10 inline-flex items-center gap-2 rounded-md bg-ink text-paper px-4 py-2.5 text-sm hover:opacity-85"
+        className="btn mt-10"
       >
         See work <span aria-hidden>→</span>
       </Link>
