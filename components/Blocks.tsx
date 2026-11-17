@@ -34,10 +34,10 @@ function Text({ b }: { b: Block }) {
     case "label":
       return <p className="eyebrow">{b.text}</p>;
     case "paragraph":
-      return <div className="prose text-[1.05rem] text-ink-2" dangerouslySetInnerHTML={{ __html: b.html }} />;
+      return <div className="prose text-base text-ink-2" dangerouslySetInnerHTML={{ __html: b.html }} />;
     case "list":
       return (
-        <ul className="prose text-[1.05rem] text-ink-2">
+        <ul className="prose text-base text-ink-2">
           {b.items.map((it) => (
             <li key={it}>{it}</li>
           ))}

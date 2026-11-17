@@ -31,7 +31,7 @@ export const site = {
     },
     {
       "name": "Instagram",
-      "href": "https://instagram.com/arnasgoldberg"
+      "href": "https://instagram.com/arnasgold"
     },
     {
       "name": "LinkedIn",
@@ -40,23 +40,41 @@ export const site = {
   ]
 } as const;
 export const home = {
-  headline: "I design in code. Eighteen years of brand, product and motion, now shipped as working software.",
+  headline: "I design in code. Product, brand and motion since 2009, now shipped as working software.",
   now: {
     label: "Now",
-    html: 'Design at <a href="https://gte.xyz" target="_blank" rel="noreferrer">GTE</a>, an AI trading platform. I lead design end to end, from brand to product, and build the interface myself.',
+    html: 'Head of Design at <a href="https://gte.xyz" target="_blank" rel="noreferrer">GTE</a>, an AI trading platform across venues and chains. I own brand, product, design system and marketing, and ship production code alongside the design.',
   },
-  stack: {
-    label: "Stack",
-    groups: [
-      "React, Next.js, TypeScript, Tailwind",
-      "Figma, Rive, Spline, After Effects",
-      "Design systems, motion, brand identity",
-      "Claude Code in the loop",
+  capabilities: {
+    label: "Capabilities",
+    items: [
+      "Data-dense, real-time UI",
+      "Product design",
+      "Design engineering",
+      "Design systems",
+      "Brand identity",
+      "3D modeling",
+      "Photography",
+      "Video editing",
+    ],
+  },
+  tools: {
+    label: "Tools",
+    items: [
+      "Figma",
+      "Cursor",
+      "Claude Code",
+      "HTML/CSS",
+      "Three.js",
+      "Git",
+      "After Effects",
+      "Premiere Pro",
+      "Cinema 4D",
     ],
   },
   before: {
     label: "Before",
-    html: "Ten years at Hanno designing healthcare products for Smith+Nephew, Omron and Ipsen. Three years at Ready on the wallet and design system. Jumpstarted design for Vesu and Pure Poker on the side.",
+    html: "Product Design Lead at Ready, owning the wallet across mobile, browser extension and web, and the design system behind it. Before that, ten years at Hanno, from web designer to Creative Lead, for Smith+Nephew, Omron, Ipsen, Sony and Lenovo. Jumpstarted design for Vesu and Pure Poker along the way.",
   },
   showreel: {
     youtube: "xd7ozgVvGB4",
@@ -68,7 +86,12 @@ export const about: Block[] = [
   {
     type: "paragraph",
     col: "full",
-    html: 'I\'m Arnas Goldberg, a designer and engineer based in Italy. I started freelancing as a logo designer at sixteen, spent ten years at Hanno moving from brand to web to front-end to healthcare product design, and spent three years at Ready shaping the wallet and its design system, with side projects along the way helping Vesu and Pure Poker get their design off the ground. Today I lead design at <a href="https://gte.xyz" target="_blank" rel="noreferrer">GTE</a>, an AI trading platform. I set the direction from brand to product, run the design work, and build the interface myself.',
+    html: 'I\'m Arnas Goldberg, Head of Design at <a href="https://gte.xyz" target="_blank" rel="noreferrer">GTE</a>, based in Turin, Italy. I started freelancing at sixteen, designing logos and brand identities, then spent ten years at Hanno growing from web designer to Creative Lead, leading small teams on healthcare, industrial and consumer work for clients like Smith+Nephew, Omron and Sony. At Ready I owned the mobile wallet and built its design system, then led the product design team across mobile, browser extension and web. Along the way I helped Vesu and Pure Poker get their design off the ground.',
+  },
+  {
+    type: "paragraph",
+    col: "full",
+    html: 'GTE is an AI trading platform across venues and chains. I own brand, product, design system and marketing there. I built the design system from scratch, work close to traders, and ship production code alongside the design with the help of AI.',
   },
   {
     type: "paragraph",

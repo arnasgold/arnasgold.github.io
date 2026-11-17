@@ -3,6 +3,7 @@
 :root {
   --paper: #f4f4f2;
   --paper-2: #e6e6e2;
+  --chip: #e6e6e2;
   --ink: #161616;
   --ink-2: #4a4a48;
   --muted: #8b8b87;
@@ -14,6 +15,7 @@
   :root {
     --paper: #0f0f0f;
     --paper-2: #1c1c1c;
+    --chip: #262625;
     --ink: #ededea;
     --ink-2: #b5b5b0;
     --muted: #767672;
@@ -25,6 +27,7 @@
 @theme inline {
   --color-paper: var(--paper);
   --color-paper-2: var(--paper-2);
+  --color-chip: var(--chip);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-muted: var(--muted);
@@ -66,9 +69,11 @@ body {
   image-rendering: crisp-edges;
 }
 
+.prose {
+  line-height: 1.75;
+}
 .prose p {
   margin: 0 0 1.1em;
-  line-height: 1.65;
 }
 .prose p:last-child {
   margin-bottom: 0;
@@ -84,7 +89,6 @@ body {
 .prose ul {
   margin: 0 0 1.1em 1.1em;
   list-style: square;
-  line-height: 1.65;
 }
 .prose li {
   margin-bottom: 0.35em;
