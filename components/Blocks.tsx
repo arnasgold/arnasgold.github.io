@@ -1,5 +1,6 @@
 import type { Block } from "@/lib/content";
 import InViewVideo from "@/components/InViewVideo";
+import LaptopFrame from "@/components/LaptopFrame";
 
 function Media({ b, eager }: { b: Block; eager?: boolean }) {
   if (b.type === "still" && b.video) {
@@ -9,9 +10,20 @@ function Media({ b, eager }: { b: Block; eager?: boolean }) {
       </figure>
     );
   }
+  if (b.type === "image" && b.frame === "laptop") {
+    return (
+      <LaptopFrame regions={b.regions}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={b.src} alt={b.alt} width={b.width} height={b.height} loading={eager ? "eager" : "lazy"} />
+      </LaptopFrame>
+    );
+  }
   if (b.type === "image" || b.type === "still") {
     return (
-      <figure className="media">
+      <figure
+        className="media"
+        style={"maxWidth" in b && b.maxWidth ? { maxWidth: b.maxWidth, marginInline: "auto" } : undefined}
+      >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={b.src}

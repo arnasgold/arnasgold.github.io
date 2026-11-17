@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Project } from "@/lib/content";
 import Blocks from "@/components/Blocks";
+import LaptopFrame from "@/components/LaptopFrame";
 
 type Neighbour = { href: string; title: string };
 
@@ -24,18 +25,33 @@ export default function CaseStudy({
         <h1 className="px text-[clamp(2.6rem,7vw,6rem)] max-w-[14ch]">{project.title}</h1>
       </header>
 
-      <div className="mx-auto max-w-[1400px] px-3 sm:px-6 mt-12">
-        <figure className="media">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={project.cover.src}
-            alt={project.title}
-            width={project.cover.width}
-            height={project.cover.height}
-            loading="eager"
-          />
-        </figure>
-      </div>
+      {project.cover.frame === "laptop" ? (
+        <div className="mx-auto max-w-[1240px] px-3 sm:px-6 mt-12 sm:mt-16 mb-6">
+          <LaptopFrame>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={project.cover.src}
+              alt={project.title}
+              width={project.cover.width}
+              height={project.cover.height}
+              loading="eager"
+            />
+          </LaptopFrame>
+        </div>
+      ) : (
+        <div className="mx-auto max-w-[1400px] px-3 sm:px-6 mt-12">
+          <figure className="media">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={project.cover.src}
+              alt={project.title}
+              width={project.cover.width}
+              height={project.cover.height}
+              loading="eager"
+            />
+          </figure>
+        </div>
+      )}
 
       <section className="mx-auto max-w-[1100px] px-5 sm:px-8 mt-16 sm:mt-24 grid gap-10 md:grid-cols-[1fr_1.6fr]">
         <aside className="flex flex-col gap-8 text-sm md:sticky md:top-24 self-start">

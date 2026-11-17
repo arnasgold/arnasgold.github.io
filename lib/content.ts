@@ -6,7 +6,7 @@ export type Block =
   | { type: 'paragraph'; html: string; col: Col; row?: number }
   | { type: 'list'; items: string[]; col: Col; row?: number }
   | { type: 'quote'; text: string; col: Col; row?: number }
-  | { type: 'image'; src: string; alt: string; width?: number; height?: number; col: Col; row?: number }
+  | { type: 'image'; src: string; alt: string; width?: number; height?: number; frame?: 'laptop'; regions?: { from: number; to: number; label: string }[]; maxWidth?: number; col: Col; row?: number }
   | { type: 'video'; src: string; poster: string | null; col: Col; row?: number }
   | { type: 'still'; src: string; hls: string; video?: string; width: number; height: number; col: Col; row?: number }
   | { type: 'button'; text: string; href: string; col: Col; row?: number }
@@ -16,7 +16,7 @@ export type Block =
 export type Section = { theme: string; blocks: Block[] };
 export type Project = {
   slug: string; title: string; year: string; category: string; deliverables: string[];
-  cover: { src: string; width?: number; height?: number }; card: string;
+  cover: { src: string; width?: number; height?: number; frame?: 'laptop' }; card: string;
   link: { text: string; href: string } | null;
   intro: Block[]; introMedia: Block[]; sections: Section[];
 };
