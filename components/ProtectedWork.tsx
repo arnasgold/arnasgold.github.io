@@ -18,7 +18,9 @@ async function decrypt(key: CryptoKey, bytes: Uint8Array) {
 
 /** Decrypts the manifest and every media file, swapping each `enc:<id>` for a blob URL. */
 async function unlock(password: string): Promise<Project[]> {
-  const manifest: Manifest = await fetch("/protected/manifest.json").then((r) => r.json());
+  // Always revalidate: a re-encrypt keeps this path but replaces its contents.
+  // Media files get new random names each time, so they can stay cached.
+  const manifest: Manifest = await fetch("/protected/manifest.json", { cache: "no-cache" }).then((r) => r.json());
   const material = await crypto.subtle.importKey("raw", new TextEncoder().encode(password), "PBKDF2", false, ["deriveKey"]);
   const key = await crypto.subtle.deriveKey(
     { name: "PBKDF2", hash: "SHA-256", salt: fromB64(manifest.kdf.salt), iterations: manifest.kdf.iterations },
