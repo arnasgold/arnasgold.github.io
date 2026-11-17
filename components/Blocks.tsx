@@ -12,10 +12,25 @@ function Media({ b, eager }: { b: Block; eager?: boolean }) {
   }
   if (b.type === "image" && b.frame === "laptop") {
     return (
-      <LaptopFrame regions={b.regions}>
+      <LaptopFrame regions={b.regions} className="laptop-in-flow">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={b.src} alt={b.alt} width={b.width} height={b.height} loading={eager ? "eager" : "lazy"} />
       </LaptopFrame>
+    );
+  }
+  if (b.type === "image" && b.fadeAt) {
+    // Shows the top `fadeAt` of the image, its bottom fading into the page;
+    // the shadow sits on a wrapper so it fades with the image.
+    return (
+      <div className="fade-shadow" style={{ width: "100%", maxWidth: b.maxWidth }}>
+        <figure
+          className="fade-frame"
+          style={{ aspectRatio: b.width && b.height ? `${b.width} / ${b.height * b.fadeAt}` : undefined }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={b.src} alt={b.alt} width={b.width} height={b.height} loading={eager ? "eager" : "lazy"} />
+        </figure>
+      </div>
     );
   }
   if (b.type === "image" || b.type === "still") {
@@ -37,7 +52,7 @@ function Media({ b, eager }: { b: Block; eager?: boolean }) {
   }
   if (b.type === "video" && b.frame === "laptop") {
     return (
-      <LaptopFrame>
+      <LaptopFrame className="laptop-in-flow">
         <InViewVideo src={b.src} poster={b.poster ?? undefined} glow={b.glow} />
       </LaptopFrame>
     );
@@ -144,6 +159,15 @@ function toRows(blocks: Block[]): Row[] {
 }
 
 function Stack({ blocks }: { blocks: Block[] }) {
+  // Faded crops sit side by side, close together.
+  if (blocks.every((b) => b.type === "image" && b.fadeAt))
+    return (
+      <div className="flex items-start justify-center gap-4 sm:gap-5">
+        {blocks.map((b, k) => (
+          <Media key={k} b={b} />
+        ))}
+      </div>
+    );
   return (
     <div className="flex flex-col gap-6">
       {blocks.map((b, k) => (isMedia(b) ? <Media key={k} b={b} /> : <Text key={k} b={b} />))}

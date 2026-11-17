@@ -112,9 +112,17 @@ body {
   position: relative;
   filter: drop-shadow(0 28px 48px rgba(0, 0, 0, 0.55)) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
 }
+/* Screens between paragraphs get room to breathe */
+.laptop-in-flow {
+  margin-block: 1.5rem;
+}
+@media (min-width: 640px) {
+  .laptop-in-flow {
+    margin-block: 2.5rem;
+  }
+}
 .laptop:has(.laptop-annotations) {
   padding-top: 3.25rem;
-  margin-bottom: 1.5rem;
 }
 .laptop-lid {
   padding: 2px;
@@ -155,6 +163,31 @@ body {
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* A crop whose lower part fades into the page */
+.fade-shadow {
+  filter: drop-shadow(0 20px 28px rgba(0, 0, 0, 0.45)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+}
+.fade-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: clamp(10px, 1.2vw, 14px) clamp(10px, 1.2vw, 14px) 0 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent);
+  mask-image: linear-gradient(to bottom, #000 78%, transparent);
+}
+.fade-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.fade-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+  pointer-events: none;
 }
 
 /* Edge's glow redrawn over a recording, screened like the app screens it over the page */

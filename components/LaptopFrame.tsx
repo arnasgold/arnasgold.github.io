@@ -7,9 +7,17 @@ export type Region = { from: number; to: number; label: string };
  * and a drop shadow lifting it off the page.
  * `regions` (percent of the screen's width) draw labelled brackets above it.
  */
-export default function LaptopFrame({ children, regions }: { children: ReactNode; regions?: Region[] }) {
+export default function LaptopFrame({
+  children,
+  regions,
+  className,
+}: {
+  children: ReactNode;
+  regions?: Region[];
+  className?: string;
+}) {
   return (
-    <div className="laptop">
+    <div className={className ? `laptop ${className}` : "laptop"}>
       {regions && (
         <div className="laptop-annotations" aria-hidden>
           {regions.map((r) => (
