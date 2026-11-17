@@ -11,8 +11,8 @@ export default function Header() {
           <span className="px text-[1.05rem] tracking-[-0.02em]">Arnas Goldberg</span>
         </Link>
         <nav className="flex items-center gap-6 text-sm">
-          <Link href="/archive/" className="text-ink-2 hover:text-ink">
-            Archive
+          <Link href="/work/" className="text-ink-2 hover:text-ink">
+            Work
           </Link>
           <Link href="/about/" className="text-ink-2 hover:text-ink">
             About

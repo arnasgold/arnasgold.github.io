@@ -8,7 +8,7 @@ export type Block =
   | { type: 'quote'; text: string; col: Col; row?: number }
   | { type: 'image'; src: string; alt: string; width?: number; height?: number; col: Col; row?: number }
   | { type: 'video'; src: string; poster: string | null; col: Col; row?: number }
-  | { type: 'still'; src: string; hls: string; width: number; height: number; col: Col; row?: number }
+  | { type: 'still'; src: string; hls: string; video?: string; width: number; height: number; col: Col; row?: number }
   | { type: 'button'; text: string; href: string; col: Col; row?: number }
   | { type: 'hr'; col: Col; row?: number }
   | { type: 'embed'; src: string | null; col: Col; row?: number }
@@ -197,6 +197,7 @@ export const projects: Project[] = [
           {
             "type": "still",
             "src": "/media/ready/80ee4f34-thumb.jpg",
+            "video": "/media/ready/spok-onboarding.mp4",
             "hls": "https://video.squarespace-cdn.com/content/v1/5ff19feb96a9ec7fa13f247c/80ee4f34-463f-4f39-bd00-cff8e454a07c/playlist.m3u8",
             "width": 1080,
             "height": 1652,
@@ -206,6 +207,7 @@ export const projects: Project[] = [
           {
             "type": "still",
             "src": "/media/ready/86631834-thumb.jpg",
+            "video": "/media/ready/spok-collection.mp4",
             "hls": "https://video.squarespace-cdn.com/content/v1/5ff19feb96a9ec7fa13f247c/86631834-83bb-463f-99a1-81d55cad2f75/playlist.m3u8",
             "width": 1080,
             "height": 1652,
@@ -215,6 +217,7 @@ export const projects: Project[] = [
           {
             "type": "still",
             "src": "/media/ready/218b9909-thumb.jpg",
+            "video": "/media/ready/card-reveal.mp4",
             "hls": "https://video.squarespace-cdn.com/content/v1/5ff19feb96a9ec7fa13f247c/218b9909-0e9f-4c6b-9851-e6e14b118ee6/playlist.m3u8",
             "width": 1080,
             "height": 1652,
@@ -298,7 +301,7 @@ export const projects: Project[] = [
         ]
       },
       {
-        "theme": "",
+        "theme": "dark-bold",
         "blocks": [
           {
             "type": "label",
@@ -309,6 +312,7 @@ export const projects: Project[] = [
           {
             "type": "still",
             "src": "/media/purepoker/5969f316-thumb.jpg",
+            "video": "/media/purepoker/community.mp4",
             "hls": "https://video.squarespace-cdn.com/content/v1/5ff19feb96a9ec7fa13f247c/5969f316-17d4-430c-b8bc-417393749163/playlist.m3u8",
             "width": 1670,
             "height": 1080,
@@ -318,7 +322,7 @@ export const projects: Project[] = [
         ]
       },
       {
-        "theme": "",
+        "theme": "dark-bold",
         "blocks": [
           {
             "type": "label",
@@ -329,6 +333,7 @@ export const projects: Project[] = [
           {
             "type": "still",
             "src": "/media/purepoker/e082d36a-thumb.jpg",
+            "video": "/media/purepoker/gameplay.mp4",
             "hls": "https://video.squarespace-cdn.com/content/v1/5ff19feb96a9ec7fa13f247c/e082d36a-8c8e-4bb2-8222-907dc2fc7f60/playlist.m3u8",
             "width": 1670,
             "height": 1080,

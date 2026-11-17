@@ -1,6 +1,14 @@
 import type { Block } from "@/lib/content";
+import InViewVideo from "@/components/InViewVideo";
 
 function Media({ b, eager }: { b: Block; eager?: boolean }) {
+  if (b.type === "still" && b.video) {
+    return (
+      <figure className="media">
+        <InViewVideo src={b.video} poster={b.src} width={b.width} height={b.height} />
+      </figure>
+    );
+  }
   if (b.type === "image" || b.type === "still") {
     return (
       <figure className="media">
@@ -18,7 +26,7 @@ function Media({ b, eager }: { b: Block; eager?: boolean }) {
   if (b.type === "video") {
     return (
       <figure className="media">
-        <video src={b.src} poster={b.poster ?? undefined} autoPlay muted loop playsInline preload="metadata" />
+        <InViewVideo src={b.src} poster={b.poster ?? undefined} />
       </figure>
     );
   }
@@ -131,14 +139,20 @@ export default function Blocks({ blocks }: { blocks: Block[] }) {
       {rows.map((row, k) => {
         if (row.kind === "stills") {
           const portrait = row.blocks.every((b) => b.type === "still" && b.height > b.width);
+          if (portrait)
+            return (
+              <div key={k} className="flex flex-col items-center gap-12 sm:gap-20">
+                {row.blocks.map((b, j) => (
+                  <div key={j} className="w-full max-w-[440px]">
+                    <Media b={b} />
+                  </div>
+                ))}
+              </div>
+            );
           return (
             <div
               key={k}
-              className={
-                portrait
-                  ? "grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 md:max-w-[900px] mx-auto"
-                  : "grid gap-6 md:grid-cols-2"
-              }
+              className={row.blocks.length > 1 ? "grid gap-6 md:grid-cols-2" : "grid"}
             >
               {row.blocks.map((b, j) => (
                 <Media key={j} b={b} />
